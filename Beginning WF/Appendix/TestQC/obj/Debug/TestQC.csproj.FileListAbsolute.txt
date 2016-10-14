@@ -1,0 +1,14 @@
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\bin\Debug\TestQC.exe
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\bin\Debug\TestQC.pdb
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\bin\Debug\QCPolicy.dll
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\bin\Debug\QCPolicy.pdb
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\obj\Debug\TestQC.exe
+C:\Users\mark\Documents\Books\WF40\Samples\Appendix\TestQC\obj\Debug\TestQC.pdb
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\bin\Debug\TestQC.exe
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\bin\Debug\TestQC.pdb
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\bin\Debug\QCPolicy.dll
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\bin\Debug\QCPolicy.pdb
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\obj\Debug\TestQC.exe
+C:\Users\mark\Documents\Books\WF40\Code\Appendix\TestQC\obj\Debug\TestQC.pdb

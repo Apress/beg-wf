@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Appendix" Class="ConfigDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Appendix;Integrated Security=True" SettingsObjectName="QCPolicy.Properties.Settings" SettingsPropertyName="AppendixConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Queue" Member="Queues">
+    <Type Name="Queue">
+      <Column Name="QueueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QueueName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Queue_SubQueue" Member="SubQueues" ThisKey="QueueID" OtherKey="QueueID" Type="SubQueue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubQueue" Member="SubQueues">
+    <Type Name="SubQueue">
+      <Column Name="SubQueueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QueueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubQueueName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberSinceLastEval" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Queue_SubQueue" Member="Queue" ThisKey="QueueID" OtherKey="QueueID" Type="Queue" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatorConfig" Member="OperatorConfigs">
+    <Type Name="OperatorConfig">
+      <Column Name="OperatorConfigID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OperatorKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UnderEvaluation" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberSinceLastEval" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

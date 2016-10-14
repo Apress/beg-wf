@@ -1,0 +1,67 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserTasks", "UserTasks\UserTasks.csproj", "{057B34BD-70CF-4FB4-BA24-44A6361DC420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RequestWeb", "RequestWeb\", "{7620BAE0-CFD2-49F4-84FB-A1385325786D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/RequestWeb"
+		Debug.AspNetCompiler.PhysicalPath = "RequestWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RequestWeb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/RequestWeb"
+		Release.AspNetCompiler.PhysicalPath = "RequestWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\RequestWeb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8791"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7} = {56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}
+		{057B34BD-70CF-4FB4-BA24-44A6361DC420} = {057B34BD-70CF-4FB4-BA24-44A6361DC420}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCPolicy", "QCPolicy\QCPolicy.csproj", "{041215A5-1AA6-4722-8E1F-4C222D9E80C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestQC", "TestQC\TestQC.csproj", "{35EBF3EC-EC75-41F8-9949-AECCE8F77F3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{057B34BD-70CF-4FB4-BA24-44A6361DC420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057B34BD-70CF-4FB4-BA24-44A6361DC420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057B34BD-70CF-4FB4-BA24-44A6361DC420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057B34BD-70CF-4FB4-BA24-44A6361DC420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56CA4F69-94E2-4B35-BF47-A1BFA966C6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7620BAE0-CFD2-49F4-84FB-A1385325786D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7620BAE0-CFD2-49F4-84FB-A1385325786D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7620BAE0-CFD2-49F4-84FB-A1385325786D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7620BAE0-CFD2-49F4-84FB-A1385325786D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{041215A5-1AA6-4722-8E1F-4C222D9E80C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041215A5-1AA6-4722-8E1F-4C222D9E80C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041215A5-1AA6-4722-8E1F-4C222D9E80C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041215A5-1AA6-4722-8E1F-4C222D9E80C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35EBF3EC-EC75-41F8-9949-AECCE8F77F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EBF3EC-EC75-41F8-9949-AECCE8F77F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EBF3EC-EC75-41F8-9949-AECCE8F77F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EBF3EC-EC75-41F8-9949-AECCE8F77F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

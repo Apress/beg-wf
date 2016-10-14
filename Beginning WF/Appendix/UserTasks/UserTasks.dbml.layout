@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UserTasks">
+  <DataContextMoniker Name="/UserTasksDataContext" />
+  <nestedChildShapes>
+    <classShape Id="78bc39da-c7b4-45a7-895a-e57b6848ec1f" absoluteBounds="0.5, 0.75, 2, 1.271816392838955">
+      <DataClassMoniker Name="/UserTasksDataContext/Queue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aff4baae-cbc6-44e2-8c8f-dd68f4b5448a" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 0.71181639283895493" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94410aa1-a325-4d9a-b2ab-096159fbd54f" absoluteBounds="1.25, 2.5, 2, 1.7724023213982583">
+      <DataClassMoniker Name="/UserTasksDataContext/SubQueue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c10ee020-da3a-4fa1-9702-366d9e31963f" absoluteBounds="1.2650000000000001, 2.96, 1.9700000000000002, 1.2124023213982582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.875 : 2.02181639283896); (1.875 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UserTasksDataContext/Queue/Queue_SubQueue" />
+      <nodes>
+        <classShapeMoniker Id="78bc39da-c7b4-45a7-895a-e57b6848ec1f" />
+        <classShapeMoniker Id="94410aa1-a325-4d9a-b2ab-096159fbd54f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0e1b8ca6-0613-49bb-88bc-6f927e4b2087" absoluteBounds="3.875, 0.625, 2, 1.6055403452118235">
+      <DataClassMoniker Name="/UserTasksDataContext/OperatorConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7da59807-4be6-4962-8871-a789e9df15bd" absoluteBounds="3.8899999999999997, 1.085, 1.9700000000000002, 1.0455403452118237" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66d57905-aa12-4a99-9adc-bd2deff269a1" absoluteBounds="3.75, 2.875, 2, 2.2729882499575611">
+      <DataClassMoniker Name="/UserTasksDataContext/QueueInstance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63fff60e-b3a1-41ee-b76f-273d30922f49" absoluteBounds="3.765, 3.335, 1.9700000000000002, 1.7129882499575615" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.8125 : 2.23054034521182); (4.8125 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/UserTasksDataContext/OperatorConfig/OperatorConfig_QueueInstance" />
+      <nodes>
+        <classShapeMoniker Id="0e1b8ca6-0613-49bb-88bc-6f927e4b2087" />
+        <classShapeMoniker Id="66d57905-aa12-4a99-9adc-bd2deff269a1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 3.57370116069913); (3.75 : 3.57370116069913)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/UserTasksDataContext/SubQueue/SubQueue_QueueInstance" />
+      <nodes>
+        <classShapeMoniker Id="94410aa1-a325-4d9a-b2ab-096159fbd54f" />
+        <classShapeMoniker Id="66d57905-aa12-4a99-9adc-bd2deff269a1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="608ed5b8-0bac-4425-a6b9-fbd01c47e267" absoluteBounds="0.5, 4.75, 2, 1.9392642975846925">
+      <DataClassMoniker Name="/UserTasksDataContext/QueueTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18216b41-44a8-4154-800c-bc4672bf2540" absoluteBounds="0.515, 5.21, 1.9700000000000002, 1.3792642975846925" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.875 : 4.27240232139826); (1.875 : 4.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UserTasksDataContext/SubQueue/SubQueue_QueueTrack" />
+      <nodes>
+        <classShapeMoniker Id="94410aa1-a325-4d9a-b2ab-096159fbd54f" />
+        <classShapeMoniker Id="608ed5b8-0bac-4425-a6b9-fbd01c47e267" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

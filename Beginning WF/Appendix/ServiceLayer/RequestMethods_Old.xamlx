@@ -1,0 +1,379 @@
+﻿<WorkflowService mc:Ignorable="sap" ConfigurationName="Service1" Name="Service1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:mvc="clr-namespace:Microsoft.VisualBasic.CompilerServices;assembly=Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:p1="http://tempuri.org/" xmlns:q="clr-namespace:QCPolicy;assembly=QCPolicy" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s5="clr-namespace:ServiceLayer;assembly=ServiceLayer" xmlns:s6="clr-namespace:ServiceLayer;assembly=ServiceLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:sa="clr-namespace:ServiceLayer.Activities;assembly=ServiceLayer" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Workflow.Runtime" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:ssa="clr-namespace:System.ServiceModel.Activities;assembly=System.ServiceModel.Activities" xmlns:ssx="clr-namespace:System.ServiceModel.XamlIntegration;assembly=System.ServiceModel" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:u="clr-namespace:UserTasks;assembly=UserTasks" xmlns:u1="clr-namespace:UserTasks;assembly=UserTasks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:ua="clr-namespace:UserTasks.Activities;assembly=UserTasks" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg3:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <p:Pick sad:XamlDebuggerXmlReader.FileName="C:\Users\mark\Documents\Books\WF40\Samples\Appendix\ServiceLayer\RequestMethods.xamlx" sap:VirtualizedContainerService.HintSize="2234.4,2596">
+    <p:PickBranch DisplayName="Submit" sap:VirtualizedContainerService.HintSize="1078.4,2548.8">
+      <p:PickBranch.Variables>
+        <p:Variable x:TypeArguments="CorrelationHandle" Name="requestIDHandle" />
+        <p:Variable x:TypeArguments="x:String" Name="name" />
+        <p:Variable x:TypeArguments="x:String" Name="requestType" />
+        <p:Variable x:TypeArguments="x:String" Name="eMail" />
+        <p:Variable x:TypeArguments="x:String" Name="comment" />
+        <p:Variable x:TypeArguments="x:String" Name="queueName" />
+        <p:Variable x:TypeArguments="x:String" Name="requestID" />
+        <p:Variable x:TypeArguments="x:Int32" Name="result" />
+        <p:Variable x:TypeArguments="s:Guid" Name="operatorID" />
+        <p:Variable x:TypeArguments="s5:Request" Name="request" />
+        <p:Variable x:TypeArguments="s:Guid" Name="requestKey" />
+        <p:Variable x:TypeArguments="x:String" Default="ProcessRequest" Name="activityName" />
+        <p:Variable x:TypeArguments="x:Boolean" Name="review" />
+        <p:Variable x:TypeArguments="x:String" Name="priority" />
+      </p:PickBranch.Variables>
+      <p:PickBranch.Trigger>
+        <x:Reference>__ReferenceID3</x:Reference>
+      </p:PickBranch.Trigger>
+      <p:Sequence sap:VirtualizedContainerService.HintSize="1048,2355.2">
+        <p:Sequence.Variables>
+          <p:Variable x:TypeArguments="u:QueueInstance" Name="queueInstance" />
+        </p:Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Switch x:TypeArguments="x:String" DisplayName="DetermineQueue" Expression="[requestType]" sap:VirtualizedContainerService.HintSize="1025.6,193.6">
+          <p:Switch.Default>
+            <p:Assign DisplayName="General" sap:VirtualizedContainerService.HintSize="456,100">
+              <p:Assign.To>
+                <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+              </p:Assign.To>
+              <p:Assign.Value>
+                <p:InArgument x:TypeArguments="x:String">General</p:InArgument>
+              </p:Assign.Value>
+            </p:Assign>
+          </p:Switch.Default>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:Assign x:Key="Product Info" DisplayName="Product" sap:VirtualizedContainerService.HintSize="454.4,99.2">
+            <p:Assign.To>
+              <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+            </p:Assign.To>
+            <p:Assign.Value>
+              <p:InArgument x:TypeArguments="x:String">Product</p:InArgument>
+            </p:Assign.Value>
+          </p:Assign>
+          <p:Assign x:Key="Return" DisplayName="Service" sap:VirtualizedContainerService.HintSize="454.4,99.2">
+            <p:Assign.To>
+              <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+            </p:Assign.To>
+            <p:Assign.Value>
+              <p:InArgument x:TypeArguments="x:String">Service</p:InArgument>
+            </p:Assign.Value>
+          </p:Assign>
+          <p:Assign x:Key="Help" DisplayName="Service" sap:VirtualizedContainerService.HintSize="454.4,99.2">
+            <p:Assign.To>
+              <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+            </p:Assign.To>
+            <p:Assign.Value>
+              <p:InArgument x:TypeArguments="x:String">Service</p:InArgument>
+            </p:Assign.Value>
+          </p:Assign>
+          <p:Assign x:Key="Feedback" DisplayName="Marketing" sap:VirtualizedContainerService.HintSize="454.4,99.2">
+            <p:Assign.To>
+              <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+            </p:Assign.To>
+            <p:Assign.Value>
+              <p:InArgument x:TypeArguments="x:String">Marketing</p:InArgument>
+            </p:Assign.Value>
+          </p:Assign>
+        </p:Switch>
+        <ua:CreateQueueInstance sap:VirtualizedContainerService.HintSize="1025.6,22.4" QueueInstance="[queueInstance]" QueueName="Request" SubQueueName="[queueName]" />
+        <sa:CreateRequest Comment="[comment]" sap:VirtualizedContainerService.HintSize="1025.6,22.4" QueueInstanceKey="[queueInstance.QueueInstanceKey]" RequestKey="[requestKey]" RequestType="[requestType]" UserEmail="[eMail]" UserName="[name]" />
+        <SendReply DisplayName="SendRequestKey" sap:VirtualizedContainerService.HintSize="1025.6,88" PersistBeforeSend="True">
+          <SendReply.Request>
+            <Receive x:Name="__ReferenceID3" CanCreateInstance="True" CorrelatesWith="[requestIDHandle]" DisplayName="ReceiveRequest" sap:VirtualizedContainerService.HintSize="1048,99.2" OperationName="SubmitRequest" ServiceContractName="p1:IProcessRequest">
+              <Receive.CorrelatesOn>
+                <MessageQuerySet />
+              </Receive.CorrelatesOn>
+              <Receive.CorrelationInitializers>
+                <QueryCorrelationInitializer CorrelationHandle="[requestIDHandle]">
+                  <XPathMessageQuery x:Key="key1">
+                    <XPathMessageQuery.Namespaces>
+                      <ssx:XPathMessageContextMarkup>
+                        <x:String x:Key="xgSc">http://tempuri.org/</x:String>
+                      </ssx:XPathMessageContextMarkup>
+                    </XPathMessageQuery.Namespaces>sm:body()/xgSc:SubmitRequest/xgSc:RequestKey</XPathMessageQuery>
+                </QueryCorrelationInitializer>
+              </Receive.CorrelationInitializers>
+              <ReceiveParametersContent>
+                <p:OutArgument x:TypeArguments="s:Guid" x:Key="RequestKey">[requestKey]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="x:String" x:Key="Name">[name]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="x:String" x:Key="RequestType">[requestType]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="x:String" x:Key="Comment">[comment]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="x:String" x:Key="EMail">[eMail]</p:OutArgument>
+              </ReceiveParametersContent>
+            </Receive>
+          </SendReply.Request>
+          <SendParametersContent />
+        </SendReply>
+        <p:While sap:VirtualizedContainerService.HintSize="1025.6,1644.8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:While.Condition>[queueName &lt;&gt; "None"]</p:While.Condition>
+          <p:Sequence DisplayName="ProcessQueue" sap:VirtualizedContainerService.HintSize="1000,1532.8">
+            <p:Sequence.Variables>
+              <p:Variable x:TypeArguments="s:Guid" Name="operatorKey" />
+              <p:Variable x:TypeArguments="x:String" Name="actionTaken" />
+              <p:Variable x:TypeArguments="x:String" Name="routeNext" />
+              <p:Variable x:TypeArguments="x:Boolean" Name="complete" />
+            </p:Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Receive x:Name="__ReferenceID0" CorrelatesWith="[requestIDHandle]" sap:VirtualizedContainerService.HintSize="977.6,88" OperationName="AssignOperator" ServiceContractName="p1:IProcessRequest">
+              <Receive.CorrelatesOn>
+                <XPathMessageQuery x:Key="key1">
+                  <XPathMessageQuery.Namespaces>
+                    <ssx:XPathMessageContextMarkup>
+                      <x:String x:Key="xgSc">http://tempuri.org/</x:String>
+                    </ssx:XPathMessageContextMarkup>
+                  </XPathMessageQuery.Namespaces>sm:body()/xgSc:AssignOperator/xgSc:RequestKey</XPathMessageQuery>
+              </Receive.CorrelatesOn>
+              <ReceiveParametersContent>
+                <p:OutArgument x:TypeArguments="s:Guid" x:Key="RequestKey">[requestKey]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="s:Guid" x:Key="OperatorKey">[operatorKey]</p:OutArgument>
+              </ReceiveParametersContent>
+            </Receive>
+            <sa:LoadRequest sap:VirtualizedContainerService.HintSize="977.6,22.4" Request="[request]" RequestKey="[requestKey]" />
+            <ua:AssignQueueInstance sap:VirtualizedContainerService.HintSize="977.6,22.4" OperatorKey="[operatorKey]" QueueInstanceID="[request.QueueInstance.QueueInstanceID]" Result="[result]" />
+            <SendReply Request="{x:Reference __ReferenceID0}" DisplayName="SendReplyToReceive" sap:VirtualizedContainerService.HintSize="977.6,88" PersistBeforeSend="True">
+              <SendParametersContent>
+                <p:InArgument x:TypeArguments="x:Int32" x:Key="Result">[result]</p:InArgument>
+              </SendParametersContent>
+            </SendReply>
+            <p:Pick sap:VirtualizedContainerService.HintSize="977.6,1027.2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:PickBranch DisplayName="Complete Request" sap:VirtualizedContainerService.HintSize="516.8,980.8" Trigger="{x:Reference __ReferenceID1}">
+                <p:Sequence sap:VirtualizedContainerService.HintSize="486.4,787.2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <sa:UpdateRequest ActionTaken="[actionTaken]" sap:VirtualizedContainerService.HintSize="464,22.4" Request="[request]" RequestKey="[requestKey]" RouteNext="[routeNext]" />
+                  <u:CompleteInstance Complete="[complete]" sap:VirtualizedContainerService.HintSize="464,22.4" QueueInstanceID="[request.QueueInstance.QueueInstanceID]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+                  <p:If Condition="[complete]" DisplayName="If Complete" sap:VirtualizedContainerService.HintSize="464,409.6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg3:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <p:If.Then>
+                      <p:Sequence sap:VirtualizedContainerService.HintSize="300.8,307.2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          </scg3:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <p:Assign sap:VirtualizedContainerService.HintSize="243.2,57.6">
+                          <p:Assign.To>
+                            <p:OutArgument x:TypeArguments="x:String">[queueName]</p:OutArgument>
+                          </p:Assign.To>
+                          <p:Assign.Value>
+                            <p:InArgument x:TypeArguments="x:String">[request.RouteNext]</p:InArgument>
+                          </p:Assign.Value>
+                        </p:Assign>
+                        <ua:AssignQueue sap:VirtualizedContainerService.HintSize="243.2,22.4" QueueInstanceID="[request.QueueInstance.QueueInstanceID]" QueueName="Request" SubQueueName="[queueName]" />
+                        <sa:UpdateRequest ActionTaken="[actionTaken]" sap:VirtualizedContainerService.HintSize="243.2,22.4" Request="[request]" RequestKey="[requestKey]" RouteNext="None" />
+                      </p:Sequence>
+                    </p:If.Then>
+                  </p:If>
+                  <SendReply DisplayName="SendReplyToReceive" sap:VirtualizedContainerService.HintSize="464,88" PersistBeforeSend="True">
+                    <SendReply.Request>
+                      <Receive x:Name="__ReferenceID1" CorrelatesWith="[requestIDHandle]" DisplayName="ReceiveComplete" sap:VirtualizedContainerService.HintSize="486.4,99.2" OperationName="CompleteRequest" ServiceContractName="p1:IProcessRequest">
+                        <Receive.CorrelatesOn>
+                          <XPathMessageQuery x:Key="key1">
+                            <XPathMessageQuery.Namespaces>
+                              <ssx:XPathMessageContextMarkup>
+                                <x:String x:Key="xgSc">http://tempuri.org/</x:String>
+                              </ssx:XPathMessageContextMarkup>
+                            </XPathMessageQuery.Namespaces>sm:body()/xgSc:CompleteRequest/xgSc:RequestKey</XPathMessageQuery>
+                        </Receive.CorrelatesOn>
+                        <ReceiveParametersContent>
+                          <p:OutArgument x:TypeArguments="s:Guid" x:Key="RequestKey">[requestKey]</p:OutArgument>
+                          <p:OutArgument x:TypeArguments="x:String" x:Key="ActionTaken">[actionTaken]</p:OutArgument>
+                          <p:OutArgument x:TypeArguments="x:String" x:Key="RouteNext">[routeNext]</p:OutArgument>
+                        </ReceiveParametersContent>
+                      </Receive>
+                    </SendReply.Request>
+                    <SendParametersContent />
+                  </SendReply>
+                </p:Sequence>
+              </p:PickBranch>
+              <p:PickBranch DisplayName="Unassign Request" sap:VirtualizedContainerService.HintSize="307.2,980.8" Trigger="{x:Reference __ReferenceID2}">
+                <p:Sequence sap:VirtualizedContainerService.HintSize="276.8,337.6">
+                  <p:Sequence.Variables>
+                    <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle1" />
+                  </p:Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <sa:LoadRequest sap:VirtualizedContainerService.HintSize="254.4,22.4" Request="[request]" RequestKey="[requestKey]" />
+                  <ua:UnAssignQueueInstance sap:VirtualizedContainerService.HintSize="254.4,22.4" QueueInstanceID="[request.QueueInstance.QueueInstanceID]" />
+                  <SendReply DisplayName="SendReplyToReceive" sap:VirtualizedContainerService.HintSize="254.4,88">
+                    <SendReply.Request>
+                      <Receive x:Name="__ReferenceID2" CorrelatesWith="[requestIDHandle]" sap:VirtualizedContainerService.HintSize="276.8,99.2" OperationName="UnassignRequest" ServiceContractName="p1:IProcessRequest">
+                        <Receive.CorrelatesOn>
+                          <XPathMessageQuery x:Key="key1">
+                            <XPathMessageQuery.Namespaces>
+                              <ssx:XPathMessageContextMarkup>
+                                <x:String x:Key="xgSc">http://tempuri.org/</x:String>
+                              </ssx:XPathMessageContextMarkup>
+                            </XPathMessageQuery.Namespaces>sm:body()/xgSc:UnassignRequest/xgSc:RequestKey</XPathMessageQuery>
+                        </Receive.CorrelatesOn>
+                        <ReceiveParametersContent>
+                          <p:OutArgument x:TypeArguments="s:Guid" x:Key="RequestKey">[requestKey]</p:OutArgument>
+                        </ReceiveParametersContent>
+                      </Receive>
+                    </SendReply.Request>
+                    <SendParametersContent />
+                  </SendReply>
+                </p:Sequence>
+              </p:PickBranch>
+            </p:Pick>
+          </p:Sequence>
+        </p:While>
+        <p:WriteLine sap:VirtualizedContainerService.HintSize="512,59.2" Text="[&quot;Request &quot; + requestID + &quot;has completed&quot;]" />
+      </p:Sequence>
+    </p:PickBranch>
+    <p:PickBranch DisplayName="QueueStats" sap:VirtualizedContainerService.HintSize="307.2,2548.8">
+      <p:PickBranch.Variables>
+        <p:Variable x:TypeArguments="CorrelationHandle" Name="handle" />
+      </p:PickBranch.Variables>
+      <p:PickBranch.Trigger>
+        <x:Reference>__ReferenceID4</x:Reference>
+      </p:PickBranch.Trigger>
+      <p:Sequence sap:VirtualizedContainerService.HintSize="276.8,275.2">
+        <p:Sequence.Variables>
+          <p:Variable x:TypeArguments="u:QueueDetail[]" Name="queueStats" />
+        </p:Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ua:LookupQueueStats sap:VirtualizedContainerService.HintSize="254.4,22.4" QueueName="Request" QueueStats="[queueStats]" />
+        <SendReply DisplayName="SendResponse" sap:VirtualizedContainerService.HintSize="254.4,88">
+          <SendReply.Request>
+            <Receive x:Name="__ReferenceID4" CanCreateInstance="True" DisplayName="ReceiveRequest" sap:VirtualizedContainerService.HintSize="276.8,99.2" OperationName="GetQueueStats" ServiceContractName="p1:IProcessRequest">
+              <Receive.CorrelatesOn>
+                <MessageQuerySet />
+              </Receive.CorrelatesOn>
+              <Receive.CorrelationInitializers>
+                <RequestReplyCorrelationInitializer CorrelationHandle="[handle]" />
+              </Receive.CorrelationInitializers>
+              <ReceiveParametersContent />
+            </Receive>
+          </SendReply.Request>
+          <SendParametersContent>
+            <p:InArgument x:TypeArguments="u:QueueDetail[]" x:Key="QueueStats">[queueStats]</p:InArgument>
+          </SendParametersContent>
+        </SendReply>
+      </p:Sequence>
+    </p:PickBranch>
+    <p:PickBranch DisplayName="GetRequests" sap:VirtualizedContainerService.HintSize="307.2,1952">
+      <p:PickBranch.Variables>
+        <p:Variable x:TypeArguments="CorrelationHandle" Name="handle" />
+        <p:Variable x:TypeArguments="x:String" Name="queueName" />
+        <p:Variable x:TypeArguments="s:Guid" Name="operatorKey" />
+        <p:Variable x:TypeArguments="s5:Request[]" Name="requestList" />
+        <p:Variable x:TypeArguments="x:Boolean" Name="qc" />
+        <p:Variable x:TypeArguments="u:QueueInstance[]" Name="queueInstanceList" />
+        <p:Variable x:TypeArguments="x:String" Name="subQueueName" />
+      </p:PickBranch.Variables>
+      <p:PickBranch.Trigger>
+        <x:Reference>__ReferenceID5</x:Reference>
+      </p:PickBranch.Trigger>
+      <p:Sequence sap:VirtualizedContainerService.HintSize="276.8,337.6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ua:GetQueueInstances sap:VirtualizedContainerService.HintSize="254.4,22.4" OperatorKey="[operatorKey]" QueueInstanceList="[queueInstanceList]" QueueKey="[&quot;Request|&quot; + queueName + &quot;|&quot; + qc.ToString()]" />
+        <sa:BuildRequestList sap:VirtualizedContainerService.HintSize="254.4,22.4" QueueInstanceList="[queueInstanceList]" RequestList="[requestList]" />
+        <SendReply DisplayName="SendResponse" sap:VirtualizedContainerService.HintSize="254.4,88">
+          <SendReply.Request>
+            <Receive x:Name="__ReferenceID5" CanCreateInstance="True" DisplayName="ReceiveRequest" sap:VirtualizedContainerService.HintSize="276.8,99.2" OperationName="GetRequest" ServiceContractName="p1:IProcessRequest">
+              <Receive.CorrelatesOn>
+                <MessageQuerySet />
+              </Receive.CorrelatesOn>
+              <Receive.CorrelationInitializers>
+                <RequestReplyCorrelationInitializer CorrelationHandle="[handle]" />
+              </Receive.CorrelationInitializers>
+              <ReceiveParametersContent>
+                <p:OutArgument x:TypeArguments="x:String" x:Key="QueueName">[queueName]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="s:Guid" x:Key="OperatorKey">[operatorKey]</p:OutArgument>
+                <p:OutArgument x:TypeArguments="x:Boolean" x:Key="QC">[qc]</p:OutArgument>
+              </ReceiveParametersContent>
+            </Receive>
+          </SendReply.Request>
+          <SendParametersContent>
+            <p:InArgument x:TypeArguments="s5:Request[]" x:Key="RequestList">[requestList]</p:InArgument>
+          </SendParametersContent>
+        </SendReply>
+      </p:Sequence>
+    </p:PickBranch>
+    <p:PickBranch DisplayName="LoadRequest" sap:VirtualizedContainerService.HintSize="307.2,1952">
+      <p:PickBranch.Variables>
+        <p:Variable x:TypeArguments="s:Guid" Name="requestKey" />
+        <p:Variable x:TypeArguments="s5:Request" Name="request" />
+      </p:PickBranch.Variables>
+      <p:PickBranch.Trigger>
+        <x:Reference>__ReferenceID6</x:Reference>
+      </p:PickBranch.Trigger>
+      <p:Sequence sap:VirtualizedContainerService.HintSize="276.8,275.2">
+        <p:Sequence.Variables>
+          <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle1" />
+        </p:Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <sa:LoadRequest sap:VirtualizedContainerService.HintSize="254.4,22.4" Request="[request]" RequestKey="[requestKey]" />
+        <SendReply DisplayName="SendReplyToReceive" sap:VirtualizedContainerService.HintSize="254.4,88">
+          <SendReply.Request>
+            <Receive x:Name="__ReferenceID6" CanCreateInstance="True" sap:VirtualizedContainerService.HintSize="276.8,99.2" OperationName="LoadRequest" ServiceContractName="p1:IProcessRequest">
+              <Receive.CorrelatesOn>
+                <MessageQuerySet />
+              </Receive.CorrelatesOn>
+              <ReceiveParametersContent>
+                <p:OutArgument x:TypeArguments="s:Guid" x:Key="RequestKey">[requestKey]</p:OutArgument>
+              </ReceiveParametersContent>
+            </Receive>
+          </SendReply.Request>
+          <SendParametersContent>
+            <p:InArgument x:TypeArguments="s5:Request" x:Key="Request">[request]</p:InArgument>
+          </SendParametersContent>
+        </SendReply>
+      </p:Sequence>
+    </p:PickBranch>
+  </p:Pick>
+</WorkflowService>

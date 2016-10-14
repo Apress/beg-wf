@@ -1,0 +1,59 @@
+﻿<Activity mc:Ignorable="sap" x:Class="UserTasks.CompleteInstance" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:local="clr-namespace:UserTasks" xmlns:local1="clr-namespace:UserTasks.Activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel" xmlns:q="clr-namespace:QCPolicy;assembly=QCPolicy" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Workflow.Runtime" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:ssx="clr-namespace:System.ServiceModel.XamlIntegration;assembly=System.ServiceModel" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:u="clr-namespace:UserTasks;assembly=UserTasks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="QueueInstanceID" Type="InArgument(x:Int32)" />
+    <x:Property Name="Complete" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="QueueInstanceKey" Type="InArgument(s:Guid)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+  <Sequence sad:XamlDebuggerXmlReader.FileName="C:\Users\mark\Documents\Books\WF40\Code\Appendix\UserTasks\CompleteInstance.xaml" sap:VirtualizedContainerService.HintSize="492.8,731.2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="local:QueueInstance" Name="queueInstance" />
+      <Variable x:TypeArguments="x:Boolean" Name="review" />
+      <Variable x:TypeArguments="x:Int32" Name="priority" />
+      <Variable x:TypeArguments="x:String" Name="connectionString" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <local1:LoadQueueInstance ConnectionString="[connectionString]" sap:VirtualizedContainerService.HintSize="470.4,22.4" QueueInstance="[queueInstance]" QueueInstanceKey="[QueueInstanceKey]" />
+    <If Condition="[queueInstance.SubQueue.Queue.SupportsQC And Not queueInstance.QC]" DisplayName="If Supports QC" sap:VirtualizedContainerService.HintSize="470.4,203.2">
+      <If.Then>
+        <sas:Interop ActivityType="q:QCPolicy" DisplayName="QC Policy" sap:VirtualizedContainerService.HintSize="203.2,100.8">
+          <sas:Interop.ActivityProperties>
+            <InArgument x:TypeArguments="x:String" x:Key="ConnectionString">[connectionString]</InArgument>
+            <InArgument x:TypeArguments="s:Guid" x:Key="OperatorKey">[queueInstance.OperatorConfig.OperatorKey]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="QueueName">[queueInstance.SubQueue.Queue.QueueName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="SubQueueName">[queueInstance.SubQueue.SubQueueName]</InArgument>
+            <OutArgument x:TypeArguments="x:Int32" x:Key="PriorityOut">[priority]</OutArgument>
+            <OutArgument x:TypeArguments="x:Boolean" x:Key="ReviewOut">[review]</OutArgument>
+          </sas:Interop.ActivityProperties>
+        </sas:Interop>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="243.2,100.8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[review]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <If Condition="[review]" DisplayName="If QC Required" sap:VirtualizedContainerService.HintSize="470.4,203.2">
+      <If.Then>
+        <local1:RequestQC sap:VirtualizedContainerService.HintSize="268.8,100.8" Priority="[priority]" QueueInstanceKey="[QueueInstanceKey]" />
+      </If.Then>
+    </If>
+    <Assign sap:VirtualizedContainerService.HintSize="470.4,57.6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[Complete]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[Not review]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

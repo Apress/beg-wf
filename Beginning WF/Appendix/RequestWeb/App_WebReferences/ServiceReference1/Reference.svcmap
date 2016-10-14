@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31e3a558-c098-4bc6-a543-ddb969a5606a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1615/RequestMethods.xamlx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RequestMethods.xsd" MetadataType="Schema" ID="012782c2-60a1-4507-a45e-3bd1e5a9c8ce" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?xsd=xsd3" />
+    <MetadataFile FileName="RequestMethods1.xsd" MetadataType="Schema" ID="9a7a1526-75ef-4bfb-a27b-1f6dae180c5f" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?xsd=xsd2" />
+    <MetadataFile FileName="RequestMethods.disco" MetadataType="Disco" ID="f4eb1d96-9bf0-4459-9548-385608e140ec" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?disco" />
+    <MetadataFile FileName="RequestMethods2.xsd" MetadataType="Schema" ID="10f9d5b0-8b3c-4788-86ce-6ca8af477749" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="3e98c603-de9d-4e5f-95c2-ffe88b481d98" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?wsdl" />
+    <MetadataFile FileName="RequestMethods3.xsd" MetadataType="Schema" ID="d5e35439-92d1-49cc-82fa-2d207342e3c9" SourceId="1" SourceUrl="http://localhost:1615/RequestMethods.xamlx?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

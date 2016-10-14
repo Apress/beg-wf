@@ -1,0 +1,120 @@
+﻿<Activity mc:Ignorable="sap" x:Class="OrderProcess.OrderWF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:local="clr-namespace:OrderProcess" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:mvc="clr-namespace:Microsoft.VisualBasic.CompilerServices;assembly=Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" xmlns:o="clr-namespace:OrderProcess;assembly=OrderProcess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:s3="clr-namespace:System;assembly=System.Xml" xmlns:s4="clr-namespace:System;assembly=System.Core" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="OrderInfo" Type="InArgument(local:Order)" />
+    <x:Property Name="TotalAmount" Type="OutArgument(x:Decimal)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg3:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sad:XamlDebuggerXmlReader.FileName="C:\Users\mark\Documents\Books\WF40\Code\Chapter06\OrderProcess\OrderWF.xaml" sap:VirtualizedContainerService.HintSize="436.8,1126.4">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <WriteLine sap:VirtualizedContainerService.HintSize="414.4,59.2" Text="Order Received" />
+    <Assign DisplayName="Initialize Total" sap:VirtualizedContainerService.HintSize="414.4,57.6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">[TotalAmount]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ForEach x:TypeArguments="local:OrderItem" DisplayName="Accumulate Order Items" sap:VirtualizedContainerService.HintSize="414.4,203.2" Values="[OrderInfo.Items]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ActivityAction x:TypeArguments="local:OrderItem">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="local:OrderItem" Name="item" />
+        </ActivityAction.Argument>
+        <Assign sap:VirtualizedContainerService.HintSize="252.8,99.2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Decimal">[TotalAmount]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Decimal">[TotalAmount + (item.Quantity * 10D)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </ActivityAction>
+    </ForEach>
+    <WriteLine DisplayName="Display Item Total" sap:VirtualizedContainerService.HintSize="414.4,59.2" Text="[&quot;The item total is: $&quot; + TotalAmount.ToString()]" />
+    <TryCatch DisplayName="Check Stock" sap:VirtualizedContainerService.HintSize="414.4,176">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ForEach x:TypeArguments="local:OrderItem" DisplayName="Check Each Item" sap:VirtualizedContainerService.HintSize="494.4,307.2" Values="[OrderInfo.Items]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="local:OrderItem">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="local:OrderItem" Name="item" />
+            </ActivityAction.Argument>
+            <If Condition="[item.ItemCode = &quot;12346&quot;]" DisplayName="If Out of Stock" sap:VirtualizedContainerService.HintSize="464,203.2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Throw Exception="[New OrderProcess.OutOfStockException(&quot;Item Code: &quot; + item.ItemCode)]" sap:VirtualizedContainerService.HintSize="268.8,100.8" />
+              </If.Then>
+            </If>
+          </ActivityAction>
+        </ForEach>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="local:OutOfStockException" sap:VirtualizedContainerService.HintSize="400,20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="local:OutOfStockException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="local:OutOfStockException" Name="exception" />
+            </ActivityAction.Argument>
+            <WriteLine sap:VirtualizedContainerService.HintSize="393.6,75.2" Text="[&quot;Item is out of stock - &quot; + exception.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <Switch x:TypeArguments="x:String" DisplayName="Handling Charges" Expression="[OrderInfo.ShippingMethod]" sap:VirtualizedContainerService.HintSize="414.4,49.6">
+      <Switch.Default>
+        <Add x:TypeArguments="x:Decimal, x:Decimal, x:Decimal" DisplayName="Add 5" sap:VirtualizedContainerService.HintSize="456,100" Left="[TotalAmount]" Result="[TotalAmount]" Right="[5.0D]" />
+      </Switch.Default>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Add x:TypeArguments="x:Decimal, x:Decimal, x:Decimal" x:Key="NextDay" DisplayName="Add 15" sap:VirtualizedContainerService.HintSize="454.4,99.2" Left="[TotalAmount]" Result="[TotalAmount]" Right="[15.0D]" />
+      <Add x:TypeArguments="x:Decimal, x:Decimal, x:Decimal" x:Key="2ndDay" DisplayName="Add 10" sap:VirtualizedContainerService.HintSize="454.4,99.2" Left="[TotalAmount]" Result="[TotalAmount]" Right="[10.0D]" />
+    </Switch>
+    <Assign DisplayName="Freight Charges" sap:VirtualizedContainerService.HintSize="414.4,57.6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">[TotalAmount]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">[TotalAmount + (OrderInfo.TotalWeight * 0.5D)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <WriteLine sap:VirtualizedContainerService.HintSize="414.4,59.2" Text="[&quot;The total amount is: $&quot; + TotalAmount.ToString()]" />
+  </Sequence>
+</Activity>

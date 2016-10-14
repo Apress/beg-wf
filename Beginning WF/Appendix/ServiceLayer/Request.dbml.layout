@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Request">
+  <DataContextMoniker Name="/RequestDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8b50398e-fc0b-4639-bf5b-c1cdb8b5f815" absoluteBounds="0.5, 0.75, 2, 2.4398502261439958">
+      <DataClassMoniker Name="/RequestDataContext/Request" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa50ea85-b9b3-4d07-b32c-09ef833bc2c2" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 1.8798502261439958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b37399f-5171-472d-8c2d-0ce25be9628d" absoluteBounds="3.25, 1, 2, 2.2729882499575615">
+      <DataClassMoniker Name="/RequestDataContext/QueueInstance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77aaff84-03cc-48f5-8333-1d806bfb55bc" absoluteBounds="3.265, 1.46, 1.9700000000000002, 1.7129882499575615" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 2.094925113072); (2.5 : 2.094925113072)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RequestDataContext/QueueInstance/QueueInstance_Request" />
+      <nodes>
+        <classShapeMoniker Id="9b37399f-5171-472d-8c2d-0ce25be9628d" />
+        <classShapeMoniker Id="8b50398e-fc0b-4639-bf5b-c1cdb8b5f815" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

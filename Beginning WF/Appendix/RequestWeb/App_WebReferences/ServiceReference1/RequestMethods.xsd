@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ServiceLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiceLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1615/RequestMethods.xamlx?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Request" nillable="true" type="tns:Request" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequest" nillable="true" type="tns:ArrayOfRequest" />
+  <xs:complexType name="Request">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionTaken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="QueueInstance" nillable="true" type="tns:QueueInstance" />
+      <xs:element minOccurs="0" name="QueueInstanceKey" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestKey" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteNext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Request" nillable="true" type="tns:Request" />
+  <xs:complexType name="QueueInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssignedOperatorID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CurrentSubQueueID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="InstanceID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="QC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="QueueInstanceID" type="xs:int" />
+      <xs:element minOccurs="0" name="QueueInstanceKey" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueueInstance" nillable="true" type="tns:QueueInstance" />
+</xs:schema>

@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadGenerator", "LeadGenerator\LeadGenerator.csproj", "{3AB62385-4155-4BF4-972B-9638B46B9BD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadResponse", "LeadResponse\LeadResponse.csproj", "{B27E664D-38A5-4635-8762-59ED9A4F46E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AB62385-4155-4BF4-972B-9638B46B9BD6}.Debug|x86.ActiveCfg = Debug|x86
+		{3AB62385-4155-4BF4-972B-9638B46B9BD6}.Debug|x86.Build.0 = Debug|x86
+		{3AB62385-4155-4BF4-972B-9638B46B9BD6}.Release|x86.ActiveCfg = Release|x86
+		{3AB62385-4155-4BF4-972B-9638B46B9BD6}.Release|x86.Build.0 = Release|x86
+		{B27E664D-38A5-4635-8762-59ED9A4F46E7}.Debug|x86.ActiveCfg = Debug|x86
+		{B27E664D-38A5-4635-8762-59ED9A4F46E7}.Debug|x86.Build.0 = Debug|x86
+		{B27E664D-38A5-4635-8762-59ED9A4F46E7}.Release|x86.ActiveCfg = Release|x86
+		{B27E664D-38A5-4635-8762-59ED9A4F46E7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

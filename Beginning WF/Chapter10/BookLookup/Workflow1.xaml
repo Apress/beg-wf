@@ -1,0 +1,23 @@
+﻿<Activity mc:Ignorable="sap" x:Class="BookLookup.Workflow1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:bs="clr-namespace:BookLookup.ServiceReference1;assembly=BookLookup, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:bsa="clr-namespace:BookLookup.ServiceReference1.Activities" xmlns:local="clr-namespace:BookLookup.ServiceReference1" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:srs="clr-namespace:System.Runtime.Serialization;assembly=System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Title" Type="InArgument(x:String)" />
+    <x:Property Name="Author" Type="InArgument(x:String)" />
+    <x:Property Name="ISBN" Type="InArgument(x:String)" />
+    <x:Property Name="BookList" Type="OutArgument(local:BookInfo[])" />
+  </x:Members>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+  <Pick sad:XamlDebuggerXmlReader.FileName="C:\Users\mark\Documents\Books\WF40\Code\Chapter10\BookLookup\Workflow1.xaml" sap:VirtualizedContainerService.HintSize="636.8,339.2">
+    <PickBranch DisplayName="Branch1" sap:VirtualizedContainerService.HintSize="241.6,292.8">
+      <PickBranch.Trigger>
+        <bsa:LookupBook2 Author="[Author]" sap:VirtualizedContainerService.HintSize="211.2,99.2" ISBN="[ISBN]" Result="[BookList]" Title="[Title]" />
+      </PickBranch.Trigger>
+      <WriteLine sap:VirtualizedContainerService.HintSize="211.2,99.2" Text="The service completed" />
+    </PickBranch>
+    <PickBranch DisplayName="Branch2" sap:VirtualizedContainerService.HintSize="241.6,292.8">
+      <PickBranch.Trigger>
+        <Delay Duration="[TimeSpan.FromSeconds(5)]" sap:VirtualizedContainerService.HintSize="211.2,99.2" />
+      </PickBranch.Trigger>
+      <WriteLine sap:VirtualizedContainerService.HintSize="211.2,99.2" Text="The service timed-out" />
+    </PickBranch>
+  </Pick>
+</Activity>

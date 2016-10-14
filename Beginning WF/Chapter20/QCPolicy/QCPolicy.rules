@@ -1,0 +1,541 @@
+﻿<RuleDefinitions xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<RuleDefinitions.RuleSets>
+		<RuleSet Description="{p3:Null}" Name="Review Policy" ChainingBehavior="Full" xmlns:p3="http://schemas.microsoft.com/winfx/2006/xaml">
+			<RuleSet.Rules>
+				<Rule ReevaluationBehavior="Always" Priority="6" Description="{p3:Null}" Active="True" Name="OperatorEval">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns0:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns1:CodeAssignStatement.Left xmlns:ns1="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns2:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns2="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns3:CodePropertyReferenceExpression.TargetObject xmlns:ns3="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns4:CodeThisReferenceExpression xmlns:ns4="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns3:CodePropertyReferenceExpression.TargetObject>
+										</ns2:CodePropertyReferenceExpression>
+									</ns1:CodeAssignStatement.Left>
+									<ns5:CodeAssignStatement.Right xmlns:ns5="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns6:CodePrimitiveExpression xmlns:ns6="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns7:CodePrimitiveExpression.Value xmlns:ns7="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns8:Boolean xmlns:ns8="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns8:Boolean>
+											</ns7:CodePrimitiveExpression.Value>
+										</ns6:CodePrimitiveExpression>
+									</ns5:CodeAssignStatement.Right>
+								</ns0:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+						<RuleHaltAction />
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns9:CodePropertyReferenceExpression PropertyName="UnderEvaluation" xmlns:ns9="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns10:CodePropertyReferenceExpression.TargetObject xmlns:ns10="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns11:CodePropertyReferenceExpression PropertyName="OperatorData" xmlns:ns11="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns12:CodePropertyReferenceExpression.TargetObject xmlns:ns12="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns13:CodeThisReferenceExpression xmlns:ns13="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns12:CodePropertyReferenceExpression.TargetObject>
+										</ns11:CodePropertyReferenceExpression>
+									</ns10:CodePropertyReferenceExpression.TargetObject>
+								</ns9:CodePropertyReferenceExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="5" Description="{p3:Null}" Active="True" Name="MinimumAmount">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns14:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns14="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns15:CodeAssignStatement.Left xmlns:ns15="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns16:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns16="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns17:CodePropertyReferenceExpression.TargetObject xmlns:ns17="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns18:CodeThisReferenceExpression xmlns:ns18="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns17:CodePropertyReferenceExpression.TargetObject>
+										</ns16:CodePropertyReferenceExpression>
+									</ns15:CodeAssignStatement.Left>
+									<ns19:CodeAssignStatement.Right xmlns:ns19="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns20:CodePrimitiveExpression xmlns:ns20="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns21:CodePrimitiveExpression.Value xmlns:ns21="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns22:Boolean xmlns:ns22="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">false</ns22:Boolean>
+											</ns21:CodePrimitiveExpression.Value>
+										</ns20:CodePrimitiveExpression>
+									</ns19:CodeAssignStatement.Right>
+								</ns14:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns23:CodeBinaryOperatorExpression Operator="LessThan" xmlns:ns23="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns24:CodeBinaryOperatorExpression.Right xmlns:ns24="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns25:CodePropertyReferenceExpression PropertyName="MinimumAmount" xmlns:ns25="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns26:CodePropertyReferenceExpression.TargetObject xmlns:ns26="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns27:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns27="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns28:CodePropertyReferenceExpression.TargetObject xmlns:ns28="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns29:CodeThisReferenceExpression xmlns:ns29="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns28:CodePropertyReferenceExpression.TargetObject>
+												</ns27:CodePropertyReferenceExpression>
+											</ns26:CodePropertyReferenceExpression.TargetObject>
+										</ns25:CodePropertyReferenceExpression>
+									</ns24:CodeBinaryOperatorExpression.Right>
+									<ns30:CodeBinaryOperatorExpression.Left xmlns:ns30="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns31:CodePropertyReferenceExpression PropertyName="Amount" xmlns:ns31="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns32:CodePropertyReferenceExpression.TargetObject xmlns:ns32="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns33:CodePropertyReferenceExpression PropertyName="TransactionData" xmlns:ns33="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns34:CodePropertyReferenceExpression.TargetObject xmlns:ns34="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns35:CodeThisReferenceExpression xmlns:ns35="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns34:CodePropertyReferenceExpression.TargetObject>
+												</ns33:CodePropertyReferenceExpression>
+											</ns32:CodePropertyReferenceExpression.TargetObject>
+										</ns31:CodePropertyReferenceExpression>
+									</ns30:CodeBinaryOperatorExpression.Left>
+								</ns23:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="4" Description="{p3:Null}" Active="True" Name="MajorAccount">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns36:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns36="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns37:CodeAssignStatement.Left xmlns:ns37="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns38:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns38="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns39:CodePropertyReferenceExpression.TargetObject xmlns:ns39="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns40:CodeThisReferenceExpression xmlns:ns40="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns39:CodePropertyReferenceExpression.TargetObject>
+										</ns38:CodePropertyReferenceExpression>
+									</ns37:CodeAssignStatement.Left>
+									<ns41:CodeAssignStatement.Right xmlns:ns41="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns42:CodePrimitiveExpression xmlns:ns42="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns43:CodePrimitiveExpression.Value xmlns:ns43="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns44:Boolean xmlns:ns44="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns44:Boolean>
+											</ns43:CodePrimitiveExpression.Value>
+										</ns42:CodePrimitiveExpression>
+									</ns41:CodeAssignStatement.Right>
+								</ns36:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+						<RuleHaltAction />
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns45:CodeBinaryOperatorExpression Operator="BooleanAnd" xmlns:ns45="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns46:CodeBinaryOperatorExpression.Right xmlns:ns46="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns47:CodeBinaryOperatorExpression Operator="GreaterThanOrEqual" xmlns:ns47="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns48:CodeBinaryOperatorExpression.Right xmlns:ns48="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns49:CodePropertyReferenceExpression PropertyName="MinimumAmount" xmlns:ns49="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns50:CodePropertyReferenceExpression.TargetObject xmlns:ns50="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns51:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns51="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+															<ns52:CodePropertyReferenceExpression.TargetObject xmlns:ns52="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+																<ns53:CodeThisReferenceExpression xmlns:ns53="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+															</ns52:CodePropertyReferenceExpression.TargetObject>
+														</ns51:CodePropertyReferenceExpression>
+													</ns50:CodePropertyReferenceExpression.TargetObject>
+												</ns49:CodePropertyReferenceExpression>
+											</ns48:CodeBinaryOperatorExpression.Right>
+											<ns54:CodeBinaryOperatorExpression.Left xmlns:ns54="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns55:CodePropertyReferenceExpression PropertyName="Amount" xmlns:ns55="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns56:CodePropertyReferenceExpression.TargetObject xmlns:ns56="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns57:CodePropertyReferenceExpression PropertyName="TransactionData" xmlns:ns57="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+															<ns58:CodePropertyReferenceExpression.TargetObject xmlns:ns58="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+																<ns59:CodeThisReferenceExpression xmlns:ns59="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+															</ns58:CodePropertyReferenceExpression.TargetObject>
+														</ns57:CodePropertyReferenceExpression>
+													</ns56:CodePropertyReferenceExpression.TargetObject>
+												</ns55:CodePropertyReferenceExpression>
+											</ns54:CodeBinaryOperatorExpression.Left>
+										</ns47:CodeBinaryOperatorExpression>
+									</ns46:CodeBinaryOperatorExpression.Right>
+									<ns60:CodeBinaryOperatorExpression.Left xmlns:ns60="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns61:CodeBinaryOperatorExpression Operator="ValueEquality" xmlns:ns61="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns62:CodeBinaryOperatorExpression.Right xmlns:ns62="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns63:CodePrimitiveExpression xmlns:ns63="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns64:CodePrimitiveExpression.Value xmlns:ns64="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns65:String xmlns:ns65="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Major</ns65:String>
+													</ns64:CodePrimitiveExpression.Value>
+												</ns63:CodePrimitiveExpression>
+											</ns62:CodeBinaryOperatorExpression.Right>
+											<ns66:CodeBinaryOperatorExpression.Left xmlns:ns66="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns67:CodePropertyReferenceExpression PropertyName="Category" xmlns:ns67="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns68:CodePropertyReferenceExpression.TargetObject xmlns:ns68="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns69:CodePropertyReferenceExpression PropertyName="CustomerData" xmlns:ns69="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+															<ns70:CodePropertyReferenceExpression.TargetObject xmlns:ns70="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+																<ns71:CodeThisReferenceExpression xmlns:ns71="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+															</ns70:CodePropertyReferenceExpression.TargetObject>
+														</ns69:CodePropertyReferenceExpression>
+													</ns68:CodePropertyReferenceExpression.TargetObject>
+												</ns67:CodePropertyReferenceExpression>
+											</ns66:CodeBinaryOperatorExpression.Left>
+										</ns61:CodeBinaryOperatorExpression>
+									</ns60:CodeBinaryOperatorExpression.Left>
+								</ns45:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="3" Description="{p3:Null}" Active="True" Name="OverLimit">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns72:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns72="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns73:CodeAssignStatement.Left xmlns:ns73="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns74:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns74="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns75:CodePropertyReferenceExpression.TargetObject xmlns:ns75="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns76:CodeThisReferenceExpression xmlns:ns76="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns75:CodePropertyReferenceExpression.TargetObject>
+										</ns74:CodePropertyReferenceExpression>
+									</ns73:CodeAssignStatement.Left>
+									<ns77:CodeAssignStatement.Right xmlns:ns77="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns78:CodePrimitiveExpression xmlns:ns78="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns79:CodePrimitiveExpression.Value xmlns:ns79="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns80:Boolean xmlns:ns80="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns80:Boolean>
+											</ns79:CodePrimitiveExpression.Value>
+										</ns78:CodePrimitiveExpression>
+									</ns77:CodeAssignStatement.Right>
+								</ns72:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+						<RuleHaltAction />
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns81:CodeBinaryOperatorExpression Operator="GreaterThanOrEqual" xmlns:ns81="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns82:CodeBinaryOperatorExpression.Right xmlns:ns82="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns83:CodePropertyReferenceExpression PropertyName="ThresholdAmount" xmlns:ns83="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns84:CodePropertyReferenceExpression.TargetObject xmlns:ns84="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns85:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns85="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns86:CodePropertyReferenceExpression.TargetObject xmlns:ns86="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns87:CodeThisReferenceExpression xmlns:ns87="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns86:CodePropertyReferenceExpression.TargetObject>
+												</ns85:CodePropertyReferenceExpression>
+											</ns84:CodePropertyReferenceExpression.TargetObject>
+										</ns83:CodePropertyReferenceExpression>
+									</ns82:CodeBinaryOperatorExpression.Right>
+									<ns88:CodeBinaryOperatorExpression.Left xmlns:ns88="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns89:CodePropertyReferenceExpression PropertyName="Amount" xmlns:ns89="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns90:CodePropertyReferenceExpression.TargetObject xmlns:ns90="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns91:CodePropertyReferenceExpression PropertyName="TransactionData" xmlns:ns91="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns92:CodePropertyReferenceExpression.TargetObject xmlns:ns92="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns93:CodeThisReferenceExpression xmlns:ns93="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns92:CodePropertyReferenceExpression.TargetObject>
+												</ns91:CodePropertyReferenceExpression>
+											</ns90:CodePropertyReferenceExpression.TargetObject>
+										</ns89:CodePropertyReferenceExpression>
+									</ns88:CodeBinaryOperatorExpression.Left>
+								</ns81:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="2" Description="{p3:Null}" Active="True" Name="OperatorFrequency">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns94:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns94="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns95:CodeAssignStatement.Left xmlns:ns95="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns96:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns96="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns97:CodePropertyReferenceExpression.TargetObject xmlns:ns97="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns98:CodeThisReferenceExpression xmlns:ns98="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns97:CodePropertyReferenceExpression.TargetObject>
+										</ns96:CodePropertyReferenceExpression>
+									</ns95:CodeAssignStatement.Left>
+									<ns99:CodeAssignStatement.Right xmlns:ns99="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns100:CodePrimitiveExpression xmlns:ns100="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns101:CodePrimitiveExpression.Value xmlns:ns101="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns102:Boolean xmlns:ns102="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns102:Boolean>
+											</ns101:CodePrimitiveExpression.Value>
+										</ns100:CodePrimitiveExpression>
+									</ns99:CodeAssignStatement.Right>
+								</ns94:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns103:CodeBinaryOperatorExpression Operator="GreaterThanOrEqual" xmlns:ns103="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns104:CodeBinaryOperatorExpression.Right xmlns:ns104="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns105:CodePropertyReferenceExpression PropertyName="Frequency" xmlns:ns105="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns106:CodePropertyReferenceExpression.TargetObject xmlns:ns106="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns107:CodePropertyReferenceExpression PropertyName="OperatorData" xmlns:ns107="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns108:CodePropertyReferenceExpression.TargetObject xmlns:ns108="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns109:CodeThisReferenceExpression xmlns:ns109="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns108:CodePropertyReferenceExpression.TargetObject>
+												</ns107:CodePropertyReferenceExpression>
+											</ns106:CodePropertyReferenceExpression.TargetObject>
+										</ns105:CodePropertyReferenceExpression>
+									</ns104:CodeBinaryOperatorExpression.Right>
+									<ns110:CodeBinaryOperatorExpression.Left xmlns:ns110="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns111:CodePropertyReferenceExpression PropertyName="NumberSinceLastEval" xmlns:ns111="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns112:CodePropertyReferenceExpression.TargetObject xmlns:ns112="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns113:CodePropertyReferenceExpression PropertyName="OperatorData" xmlns:ns113="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns114:CodePropertyReferenceExpression.TargetObject xmlns:ns114="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns115:CodeThisReferenceExpression xmlns:ns115="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns114:CodePropertyReferenceExpression.TargetObject>
+												</ns113:CodePropertyReferenceExpression>
+											</ns112:CodePropertyReferenceExpression.TargetObject>
+										</ns111:CodePropertyReferenceExpression>
+									</ns110:CodeBinaryOperatorExpression.Left>
+								</ns103:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="1" Description="{p3:Null}" Active="True" Name="ActivityFrequency">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns116:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns116="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns117:CodeAssignStatement.Left xmlns:ns117="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns118:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns118="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns119:CodePropertyReferenceExpression.TargetObject xmlns:ns119="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns120:CodeThisReferenceExpression xmlns:ns120="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns119:CodePropertyReferenceExpression.TargetObject>
+										</ns118:CodePropertyReferenceExpression>
+									</ns117:CodeAssignStatement.Left>
+									<ns121:CodeAssignStatement.Right xmlns:ns121="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns122:CodePrimitiveExpression xmlns:ns122="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns123:CodePrimitiveExpression.Value xmlns:ns123="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns124:Boolean xmlns:ns124="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">true</ns124:Boolean>
+											</ns123:CodePrimitiveExpression.Value>
+										</ns122:CodePrimitiveExpression>
+									</ns121:CodeAssignStatement.Right>
+								</ns116:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns125:CodeBinaryOperatorExpression Operator="GreaterThanOrEqual" xmlns:ns125="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns126:CodeBinaryOperatorExpression.Right xmlns:ns126="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns127:CodePropertyReferenceExpression PropertyName="Frequency" xmlns:ns127="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns128:CodePropertyReferenceExpression.TargetObject xmlns:ns128="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns129:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns129="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns130:CodePropertyReferenceExpression.TargetObject xmlns:ns130="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns131:CodeThisReferenceExpression xmlns:ns131="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns130:CodePropertyReferenceExpression.TargetObject>
+												</ns129:CodePropertyReferenceExpression>
+											</ns128:CodePropertyReferenceExpression.TargetObject>
+										</ns127:CodePropertyReferenceExpression>
+									</ns126:CodeBinaryOperatorExpression.Right>
+									<ns132:CodeBinaryOperatorExpression.Left xmlns:ns132="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns133:CodePropertyReferenceExpression PropertyName="NumberSinceLastEval" xmlns:ns133="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns134:CodePropertyReferenceExpression.TargetObject xmlns:ns134="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns135:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns135="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns136:CodePropertyReferenceExpression.TargetObject xmlns:ns136="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns137:CodeThisReferenceExpression xmlns:ns137="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns136:CodePropertyReferenceExpression.TargetObject>
+												</ns135:CodePropertyReferenceExpression>
+											</ns134:CodePropertyReferenceExpression.TargetObject>
+										</ns133:CodePropertyReferenceExpression>
+									</ns132:CodeBinaryOperatorExpression.Left>
+								</ns125:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+			</RuleSet.Rules>
+		</RuleSet>
+		<RuleSet Description="{p3:Null}" Name="Priority Policy" ChainingBehavior="Full" xmlns:p3="http://schemas.microsoft.com/winfx/2006/xaml">
+			<RuleSet.Rules>
+				<Rule ReevaluationBehavior="Always" Priority="3" Description="{p3:Null}" Active="True" Name="MahjorAccount">
+					<Rule.ElseActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns138:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns138="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns139:CodeAssignStatement.Left xmlns:ns139="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns140:CodePropertyReferenceExpression PropertyName="Priority" xmlns:ns140="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns141:CodePropertyReferenceExpression.TargetObject xmlns:ns141="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns142:CodeThisReferenceExpression xmlns:ns142="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns141:CodePropertyReferenceExpression.TargetObject>
+										</ns140:CodePropertyReferenceExpression>
+									</ns139:CodeAssignStatement.Left>
+									<ns143:CodeAssignStatement.Right xmlns:ns143="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns144:CodePrimitiveExpression xmlns:ns144="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns145:CodePrimitiveExpression.Value xmlns:ns145="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns146:String xmlns:ns146="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Normal</ns146:String>
+											</ns145:CodePrimitiveExpression.Value>
+										</ns144:CodePrimitiveExpression>
+									</ns143:CodeAssignStatement.Right>
+								</ns138:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ElseActions>
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns147:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns147="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns148:CodeAssignStatement.Left xmlns:ns148="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns149:CodePropertyReferenceExpression PropertyName="Priority" xmlns:ns149="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns150:CodePropertyReferenceExpression.TargetObject xmlns:ns150="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns151:CodeThisReferenceExpression xmlns:ns151="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns150:CodePropertyReferenceExpression.TargetObject>
+										</ns149:CodePropertyReferenceExpression>
+									</ns148:CodeAssignStatement.Left>
+									<ns152:CodeAssignStatement.Right xmlns:ns152="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns153:CodePrimitiveExpression xmlns:ns153="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns154:CodePrimitiveExpression.Value xmlns:ns154="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns155:String xmlns:ns155="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">High</ns155:String>
+											</ns154:CodePrimitiveExpression.Value>
+										</ns153:CodePrimitiveExpression>
+									</ns152:CodeAssignStatement.Right>
+								</ns147:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns156:CodeBinaryOperatorExpression Operator="ValueEquality" xmlns:ns156="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns157:CodeBinaryOperatorExpression.Right xmlns:ns157="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns158:CodePrimitiveExpression xmlns:ns158="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns159:CodePrimitiveExpression.Value xmlns:ns159="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns160:String xmlns:ns160="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Major</ns160:String>
+											</ns159:CodePrimitiveExpression.Value>
+										</ns158:CodePrimitiveExpression>
+									</ns157:CodeBinaryOperatorExpression.Right>
+									<ns161:CodeBinaryOperatorExpression.Left xmlns:ns161="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns162:CodePropertyReferenceExpression PropertyName="Category" xmlns:ns162="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns163:CodePropertyReferenceExpression.TargetObject xmlns:ns163="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns164:CodePropertyReferenceExpression PropertyName="CustomerData" xmlns:ns164="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns165:CodePropertyReferenceExpression.TargetObject xmlns:ns165="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns166:CodeThisReferenceExpression xmlns:ns166="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns165:CodePropertyReferenceExpression.TargetObject>
+												</ns164:CodePropertyReferenceExpression>
+											</ns163:CodePropertyReferenceExpression.TargetObject>
+										</ns162:CodePropertyReferenceExpression>
+									</ns161:CodeBinaryOperatorExpression.Left>
+								</ns156:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="2" Description="{p3:Null}" Active="True" Name="ThresholdAmount">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns167:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns167="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns168:CodeAssignStatement.Left xmlns:ns168="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns169:CodePropertyReferenceExpression PropertyName="Priority" xmlns:ns169="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns170:CodePropertyReferenceExpression.TargetObject xmlns:ns170="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns171:CodeThisReferenceExpression xmlns:ns171="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns170:CodePropertyReferenceExpression.TargetObject>
+										</ns169:CodePropertyReferenceExpression>
+									</ns168:CodeAssignStatement.Left>
+									<ns172:CodeAssignStatement.Right xmlns:ns172="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns173:CodePrimitiveExpression xmlns:ns173="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns174:CodePrimitiveExpression.Value xmlns:ns174="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns175:String xmlns:ns175="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">High</ns175:String>
+											</ns174:CodePrimitiveExpression.Value>
+										</ns173:CodePrimitiveExpression>
+									</ns172:CodeAssignStatement.Right>
+								</ns167:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns176:CodeBinaryOperatorExpression Operator="GreaterThanOrEqual" xmlns:ns176="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns177:CodeBinaryOperatorExpression.Right xmlns:ns177="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns178:CodePropertyReferenceExpression PropertyName="ThresholdAmount" xmlns:ns178="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns179:CodePropertyReferenceExpression.TargetObject xmlns:ns179="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns180:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns180="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns181:CodePropertyReferenceExpression.TargetObject xmlns:ns181="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns182:CodeThisReferenceExpression xmlns:ns182="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns181:CodePropertyReferenceExpression.TargetObject>
+												</ns180:CodePropertyReferenceExpression>
+											</ns179:CodePropertyReferenceExpression.TargetObject>
+										</ns178:CodePropertyReferenceExpression>
+									</ns177:CodeBinaryOperatorExpression.Right>
+									<ns183:CodeBinaryOperatorExpression.Left xmlns:ns183="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns184:CodePropertyReferenceExpression PropertyName="Amount" xmlns:ns184="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns185:CodePropertyReferenceExpression.TargetObject xmlns:ns185="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns186:CodePropertyReferenceExpression PropertyName="TransactionData" xmlns:ns186="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns187:CodePropertyReferenceExpression.TargetObject xmlns:ns187="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns188:CodeThisReferenceExpression xmlns:ns188="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns187:CodePropertyReferenceExpression.TargetObject>
+												</ns186:CodePropertyReferenceExpression>
+											</ns185:CodePropertyReferenceExpression.TargetObject>
+										</ns184:CodePropertyReferenceExpression>
+									</ns183:CodeBinaryOperatorExpression.Left>
+								</ns176:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule ReevaluationBehavior="Always" Priority="1" Description="{p3:Null}" Active="True" Name="Minimum">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns189:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns189="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns190:CodeAssignStatement.Left xmlns:ns190="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns191:CodePropertyReferenceExpression PropertyName="Priority" xmlns:ns191="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns192:CodePropertyReferenceExpression.TargetObject xmlns:ns192="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns193:CodeThisReferenceExpression xmlns:ns193="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+											</ns192:CodePropertyReferenceExpression.TargetObject>
+										</ns191:CodePropertyReferenceExpression>
+									</ns190:CodeAssignStatement.Left>
+									<ns194:CodeAssignStatement.Right xmlns:ns194="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns195:CodePrimitiveExpression xmlns:ns195="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns196:CodePrimitiveExpression.Value xmlns:ns196="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns197:String xmlns:ns197="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Low</ns197:String>
+											</ns196:CodePrimitiveExpression.Value>
+										</ns195:CodePrimitiveExpression>
+									</ns194:CodeAssignStatement.Right>
+								</ns189:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns198:CodeBinaryOperatorExpression Operator="LessThan" xmlns:ns198="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns199:CodeBinaryOperatorExpression.Right xmlns:ns199="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns200:CodePropertyReferenceExpression PropertyName="MinimumAmount" xmlns:ns200="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns201:CodePropertyReferenceExpression.TargetObject xmlns:ns201="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns202:CodePropertyReferenceExpression PropertyName="ActivityData" xmlns:ns202="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns203:CodePropertyReferenceExpression.TargetObject xmlns:ns203="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns204:CodeThisReferenceExpression xmlns:ns204="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns203:CodePropertyReferenceExpression.TargetObject>
+												</ns202:CodePropertyReferenceExpression>
+											</ns201:CodePropertyReferenceExpression.TargetObject>
+										</ns200:CodePropertyReferenceExpression>
+									</ns199:CodeBinaryOperatorExpression.Right>
+									<ns205:CodeBinaryOperatorExpression.Left xmlns:ns205="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+										<ns206:CodePropertyReferenceExpression PropertyName="Amount" xmlns:ns206="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+											<ns207:CodePropertyReferenceExpression.TargetObject xmlns:ns207="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+												<ns208:CodePropertyReferenceExpression PropertyName="TransactionData" xmlns:ns208="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+													<ns209:CodePropertyReferenceExpression.TargetObject xmlns:ns209="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+														<ns210:CodeThisReferenceExpression xmlns:ns210="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+													</ns209:CodePropertyReferenceExpression.TargetObject>
+												</ns208:CodePropertyReferenceExpression>
+											</ns207:CodePropertyReferenceExpression.TargetObject>
+										</ns206:CodePropertyReferenceExpression>
+									</ns205:CodeBinaryOperatorExpression.Left>
+								</ns198:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+			</RuleSet.Rules>
+		</RuleSet>
+	</RuleDefinitions.RuleSets>
+	<RuleDefinitions.Conditions>
+		<RuleExpressionCondition Name="Review">
+			<RuleExpressionCondition.Expression>
+				<ns211:CodePropertyReferenceExpression PropertyName="Review" xmlns:ns211="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns212:CodePropertyReferenceExpression.TargetObject xmlns:ns212="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+						<ns213:CodeThisReferenceExpression xmlns:ns213="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+					</ns212:CodePropertyReferenceExpression.TargetObject>
+				</ns211:CodePropertyReferenceExpression>
+			</RuleExpressionCondition.Expression>
+		</RuleExpressionCondition>
+	</RuleDefinitions.Conditions>
+</RuleDefinitions>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Appendix" Class="UserTasksDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Appendix;Integrated Security=True" SettingsObjectName="UserTasks.Properties.Settings" SettingsPropertyName="AppendixConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Queue" Member="Queues">
+    <Type Name="Queue">
+      <Column Name="QueueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QueueName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SupportsQC" Type="System.Boolean" DbType="bit" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubQueue" Member="SubQueues">
+    <Type Name="SubQueue">
+      <Column Name="SubQueueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QueueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubQueueName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberSinceLastEval" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SubQueue_QueueTrack" Member="QueueTracks" ThisKey="SubQueueID" OtherKey="SubQueueID" Type="QueueTrack" />
+      <Association Name="Queue_SubQueue" Member="Queue" ThisKey="QueueID" OtherKey="QueueID" Type="Queue" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatorConfig" Member="OperatorConfigs">
+    <Type Name="OperatorConfig">
+      <Column Name="OperatorConfigID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OperatorKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UnderEvaluation" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberSinceLastEval" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QueueInstance" Member="QueueInstances">
+    <Type Name="QueueInstance">
+      <Column Name="QueueInstanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InstanceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentSubQueueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QC" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AssignedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AssignedOperatorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="QueueInstanceKey" Type="System.Guid" DbType="uniqueidentifier" CanBeNull="false" />
+      <Association Name="OperatorConfig_QueueInstance" Member="OperatorConfig" ThisKey="AssignedOperatorID" OtherKey="OperatorConfigID" Type="OperatorConfig" IsForeignKey="true" />
+      <Association Name="SubQueue_QueueInstance" Member="SubQueue" ThisKey="CurrentSubQueueID" OtherKey="SubQueueID" Type="SubQueue" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QueueTrack" Member="QueueTracks">
+    <Type Name="QueueTrack">
+      <Column Name="QueueTrackID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="QueueInstanceKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="SubQueueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OperatorKey" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="EventDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="SubQueue_QueueTrack" Member="SubQueue" ThisKey="SubQueueID" OtherKey="SubQueueID" Type="SubQueue" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

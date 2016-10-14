@@ -1,0 +1,44 @@
+﻿<Activity mc:Ignorable="sap" x:Class="PolicySample.MyActivity" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:local="clr-namespace:SamplePolicy" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:q="clr-namespace:QCPolicy;assembly=QCPolicy" xmlns:q1="clr-namespace:QCPolicy;assembly=QCPolicy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:s3="clr-namespace:System;assembly=System.Xml" xmlns:s4="clr-namespace:System;assembly=System.Core" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sas="clr-namespace:System.Activities.Statements;assembly=System.Workflow.Runtime" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="customerData" Type="InArgument(q:CustomerConfig)" />
+    <x:Property Name="transactionData" Type="InArgument(q:TransactionConfig)" />
+    <x:Property Name="operatorData" Type="InArgument(q:OperatorConfig)" />
+    <x:Property Name="activityData" Type="InArgument(q:ActivityConfig)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+  <Sequence sad:XamlDebuggerXmlReader.FileName="C:\users\mark\Documents\Books\WF40\Code\Chapter20\PolicySample\MyActivity.xaml" sap:VirtualizedContainerService.HintSize="486.4,684.8">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="review" />
+      <Variable x:TypeArguments="x:String" Name="priority" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <WriteLine DisplayName="Execute Activity" sap:VirtualizedContainerService.HintSize="464,59.2" Text="The activity is executing…" />
+    <WriteLine sap:VirtualizedContainerService.HintSize="464,60.8" Text="[&quot;Amount = $&quot; + transactionData.Amount.ToString() +&#xA;&quot;, # since oper eval = &quot; + operatorData.NumberSinceLastEval.ToString() +&#xA;&quot;, # since activity eval = &quot; + activityData.NumberSinceLastEval.ToString()]" />
+    <sas:Interop ActivityType="q:QCPolicy" DisplayName="QCPolicy" sap:VirtualizedContainerService.HintSize="464,54.4">
+      <sas:Interop.ActivityProperties>
+        <InArgument x:TypeArguments="q:ActivityConfig" x:Key="ActivityData">[activityData]</InArgument>
+        <InArgument x:TypeArguments="q:CustomerConfig" x:Key="CustomerData">[customerData]</InArgument>
+        <InArgument x:TypeArguments="q:OperatorConfig" x:Key="OperatorData">[operatorData]</InArgument>
+        <InArgument x:TypeArguments="q:TransactionConfig" x:Key="TransactionData">[transactionData]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="PriorityOut">[priority]</OutArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="ReviewOut">[review]</OutArgument>
+      </sas:Interop.ActivityProperties>
+    </sas:Interop>
+    <If Condition="[review]" sap:VirtualizedContainerService.HintSize="464,203.2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <WriteLine sap:VirtualizedContainerService.HintSize="273.6,100.8" Text="[&quot;Activity is being reviewed; priority is &quot; + priority]" />
+      </If.Then>
+    </If>
+    <local:UpdateCounters ActivityData="[activityData]" sap:VirtualizedContainerService.HintSize="464,22.4" OperatorData="[operatorData]" Review="[review]" />
+  </Sequence>
+</Activity>

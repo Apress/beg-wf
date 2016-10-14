@@ -1,0 +1,72 @@
+﻿*{margin:0px;padding:0px;}
+
+body {
+}
+
+table
+{
+    background-color:#EEEEEE;
+    border-color:#400303;
+    width:730px;
+}
+
+.MyTH
+{
+    background-color: #400303;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 10px;
+    height:45px;
+}
+
+.MySubTH
+{
+    background-color: #625425;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 10px;
+    height:30px;
+}
+
+.InstructionalText
+{
+    font-size:14px;
+    color:#000000;
+    text-align:center;
+}
+
+.LabelText
+{
+    font-size:14px;
+    color:#000000;
+    font-weight:bold;
+}
+
+.LoginText
+{
+    font-size:12px;
+    color:#000000;
+}
+
+a
+{
+    color:Blue;
+    font-size:12px;
+    text-decoration:none;
+}
+
+
+a:hover
+{
+    text-decoration:underline;
+}
+
+.gvHeaderRow
+{
+    background-image:url(/images/gridheader.png);
+}
+

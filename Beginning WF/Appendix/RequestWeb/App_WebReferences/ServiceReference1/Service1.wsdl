@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1615/RequestMethods.xamlx?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1615/RequestMethods.xamlx?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1615/RequestMethods.xamlx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UserTasks" />
+      <xsd:import schemaLocation="http://localhost:1615/RequestMethods.xamlx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProcessRequest_SubmitRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitRequest" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_SubmitRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_GetQueueStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueStats" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_GetQueueStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_GetRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequest" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_GetRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_LoadRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRequest" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_LoadRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_AssignOperator_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignOperator" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_AssignOperator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_CompleteRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteRequest" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_CompleteRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_UnassignRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnassignRequest" />
+  </wsdl:message>
+  <wsdl:message name="IProcessRequest_UnassignRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnassignRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProcessRequest">
+    <wsdl:operation name="SubmitRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/SubmitRequest" message="tns:IProcessRequest_SubmitRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/SubmitRequestResponse" message="tns:IProcessRequest_SubmitRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueStats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/GetQueueStats" message="tns:IProcessRequest_GetQueueStats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/GetQueueStatsResponse" message="tns:IProcessRequest_GetQueueStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/GetRequest" message="tns:IProcessRequest_GetRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/GetRequestResponse" message="tns:IProcessRequest_GetRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/LoadRequest" message="tns:IProcessRequest_LoadRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/LoadRequestResponse" message="tns:IProcessRequest_LoadRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignOperator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/AssignOperator" message="tns:IProcessRequest_AssignOperator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/AssignOperatorResponse" message="tns:IProcessRequest_AssignOperator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/CompleteRequest" message="tns:IProcessRequest_CompleteRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/CompleteRequestResponse" message="tns:IProcessRequest_CompleteRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnassignRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProcessRequest/UnassignRequest" message="tns:IProcessRequest_UnassignRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProcessRequest/UnassignRequestResponse" message="tns:IProcessRequest_UnassignRequest_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProcessRequest" type="tns:IProcessRequest">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubmitRequest">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/SubmitRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueStats">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/GetQueueStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequest">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/GetRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRequest">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/LoadRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignOperator">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/AssignOperator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteRequest">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/CompleteRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnassignRequest">
+      <soap:operation soapAction="http://tempuri.org/IProcessRequest/UnassignRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IProcessRequest" binding="tns:BasicHttpBinding_IProcessRequest">
+      <soap:address location="http://localhost:1615/RequestMethods.xamlx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

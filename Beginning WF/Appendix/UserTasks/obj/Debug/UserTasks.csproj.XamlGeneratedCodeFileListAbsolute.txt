@@ -1,0 +1,2 @@
+obj\Debug\_UserTasks.g.cs
+obj\Debug\CompleteInstance.g.cs

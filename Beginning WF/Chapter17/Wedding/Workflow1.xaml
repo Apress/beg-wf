@@ -1,0 +1,191 @@
+﻿<Activity mc:Ignorable="sap" x:Class="Wedding.Workflow1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:local="clr-namespace:Wedding" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:s1="clr-namespace:System;assembly=mscorlib" xmlns:s2="clr-namespace:System;assembly=System" xmlns:s3="clr-namespace:System;assembly=System.Xml" xmlns:s4="clr-namespace:System;assembly=System.Core" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.DataSetExtensions" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:w="clr-namespace:Wedding;assembly=Wedding, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+    </scg3:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <TryCatch sad:XamlDebuggerXmlReader.FileName="C:\Users\mark\Documents\Books\WF40\Code\Chapter17\Wedding\Workflow1.xaml" sap:VirtualizedContainerService.HintSize="507.2,678.4">
+    <TryCatch.Variables>
+      <Variable x:TypeArguments="CompensationToken" Name="weddingToken" />
+      <Variable x:TypeArguments="CompensationToken" Name="receptionToken" />
+      <Variable x:TypeArguments="CompensationToken" Name="invitationsToken" />
+    </TryCatch.Variables>
+    <TryCatch.Try>
+      <Sequence DisplayName="Wedding Preparations" sap:VirtualizedContainerService.HintSize="489.6,398.4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Parallel DisplayName="Planning Activities" sap:VirtualizedContainerService.HintSize="211.2,49.6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Parallel.CompletionCondition>False</Parallel.CompletionCondition>
+          <CompensableActivity DisplayName="Wedding" sap:VirtualizedContainerService.HintSize="209.6,59.2" Result="[weddingToken]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap:VirtualizedContainerService.HintSize="233.6,507.2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Reserve Church" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The church has been reserved" />
+              <Delay Duration="[TimeSpan.FromSeconds(2)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Schedule Rehearsal" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The rehearsal has been scheduled" />
+              <Delay Duration="[TimeSpan.FromSeconds(5)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Order Flowers" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The flowers have been ordered" />
+            </Sequence>
+            <CompensableActivity.CancellationHandler>
+              <WriteLine sap:VirtualizedContainerService.HintSize="233.6,59.2" Text="Cancellation: The church reservation has been released" />
+            </CompensableActivity.CancellationHandler>
+            <CompensableActivity.CompensationHandler>
+              <Sequence sap:VirtualizedContainerService.HintSize="233.6,382.4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Starting" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The wedding compensation is starting" />
+                <WriteLine DisplayName="Church" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The church reservation was released" />
+                <WriteLine DisplayName="Flowers" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The flowers have been cancelled" />
+              </Sequence>
+            </CompensableActivity.CompensationHandler>
+            <CompensableActivity.ConfirmationHandler>
+              <WriteLine sap:VirtualizedContainerService.HintSize="233.6,59.2" Text="Confirmation: The wedding plans have been confirmed" />
+            </CompensableActivity.ConfirmationHandler>
+          </CompensableActivity>
+          <CompensableActivity DisplayName="Reception" sap:VirtualizedContainerService.HintSize="209.6,59.2" Result="[receptionToken]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap:VirtualizedContainerService.HintSize="233.6,100.8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Reserve Facility" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The reception facility has been reserved" />
+              <Delay Duration="[TimeSpan.FromSeconds(3)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Menu" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The menu has been decided" />
+              <Delay Duration="[TimeSpan.FromSeconds(1)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Pay Deposit" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The reception deposit has been paid" />
+            </Sequence>
+            <CompensableActivity.CancellationHandler>
+              <WriteLine sap:VirtualizedContainerService.HintSize="233.6,59.2" Text="Cancellation: The reception has been cancelled" />
+            </CompensableActivity.CancellationHandler>
+            <CompensableActivity.CompensationHandler>
+              <Sequence sap:VirtualizedContainerService.HintSize="233.6,382.4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Starting" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The reception compensation is starting" />
+                <WriteLine DisplayName="Facility" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The reception reservation was released" />
+                <WriteLine DisplayName="Deposit" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: A refund of the deposit was requested" />
+              </Sequence>
+            </CompensableActivity.CompensationHandler>
+            <CompensableActivity.ConfirmationHandler>
+              <Sequence sap:VirtualizedContainerService.HintSize="233.6,51.2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Pay for Facility" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Confirmation: The reception facility has been paid for" />
+                <WriteLine DisplayName="Display Confirmation" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Confirmation: The reception activities have been confirmed" />
+              </Sequence>
+            </CompensableActivity.ConfirmationHandler>
+          </CompensableActivity>
+          <CompensableActivity DisplayName="Invitations" sap:VirtualizedContainerService.HintSize="209.6,59.2" Result="[invitationsToken]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap:VirtualizedContainerService.HintSize="211.2,100.8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Delay Duration="[TimeSpan.FromSeconds(4)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Order Stationary" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The stationary has been ordered" />
+              <Delay Duration="[TimeSpan.FromSeconds(2)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+              <WriteLine DisplayName="Finalize List" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Body: The invite list has been agreed to" />
+            </Sequence>
+            <CompensableActivity.CancellationHandler>
+              <WriteLine sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Cancellation: The invitation activity has been cancelled" />
+            </CompensableActivity.CancellationHandler>
+            <CompensableActivity.CompensationHandler>
+              <WriteLine sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Compensation: The invitations compensation handler was called – nothing to do" />
+            </CompensableActivity.CompensationHandler>
+            <CompensableActivity.ConfirmationHandler>
+              <Sequence sap:VirtualizedContainerService.HintSize="211.2,51.2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Mail Invitations" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Confirmation: The invitations have been sent" />
+                <WriteLine DisplayName="Display Confirmation" sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Confirmation: The invitations activities have been confirmed" />
+              </Sequence>
+            </CompensableActivity.ConfirmationHandler>
+          </CompensableActivity>
+        </Parallel>
+        <Confirm DisplayName="Confirm Invitations" sap:VirtualizedContainerService.HintSize="211.2,22.4" Target="[invitationsToken]" />
+        <Throw Exception="[New Wedding.CallItOffException(&quot;The wedding has been cancelled&quot;)]" sap:VirtualizedContainerService.HintSize="211.2,22.4" />
+        <WriteLine sap:VirtualizedContainerService.HintSize="211.2,59.2" Text="Main: Congratulations! The wedding preparations are complete." />
+      </Sequence>
+    </TryCatch.Try>
+    <TryCatch.Catches>
+      <Catch x:TypeArguments="local:CallItOffException" sap:VirtualizedContainerService.HintSize="492.8,522.4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ActivityAction x:TypeArguments="local:CallItOffException">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="local:CallItOffException" Name="exception" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="486.4,489.6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine sap:VirtualizedContainerService.HintSize="464,59.2" Text="[&quot;Catch: &quot; + exception.Message]" />
+            <If Condition="[Not receptionToken Is Nothing]" DisplayName="Compensate Reception" sap:VirtualizedContainerService.HintSize="464,203.2">
+              <If.Then>
+                <Compensate sap:VirtualizedContainerService.HintSize="268.8,100.8" Target="[receptionToken]" />
+              </If.Then>
+            </If>
+            <Rethrow sap:VirtualizedContainerService.HintSize="464,22.4" />
+          </Sequence>
+        </ActivityAction>
+      </Catch>
+    </TryCatch.Catches>
+  </TryCatch>
+</Activity>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookInventory", "BookInventory\BookInventory.csproj", "{AA01D130-4DF9-41DB-891A-99CAE4F99202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLookup", "BookLookup\BookLookup.csproj", "{E5C5E5FD-6FDD-4623-8408-0B4473AF8DA5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA01D130-4DF9-41DB-891A-99CAE4F99202} = {AA01D130-4DF9-41DB-891A-99CAE4F99202}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA01D130-4DF9-41DB-891A-99CAE4F99202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA01D130-4DF9-41DB-891A-99CAE4F99202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA01D130-4DF9-41DB-891A-99CAE4F99202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA01D130-4DF9-41DB-891A-99CAE4F99202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C5E5FD-6FDD-4623-8408-0B4473AF8DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C5E5FD-6FDD-4623-8408-0B4473AF8DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C5E5FD-6FDD-4623-8408-0B4473AF8DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C5E5FD-6FDD-4623-8408-0B4473AF8DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
